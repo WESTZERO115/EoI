@@ -1,0 +1,34 @@
+네트워크에 접근 가능한지 불가능한지 미리 정해놓은 리스트 
+주로 보안 목적
+라우터의 문지기.
+
+01. 스탠더드 액세스 리스트
+: 출입 통제를 할 때 출발지 주소만 참고함.
+02. 익스텐디드 액세스 리스트
+: 출발지 주소, 목적지 주소, 프로토콜 등 있는 조건 모두 다 따짐.
+(+03. 다이내믹 액세스 리스트)
+
+액세스 리스트에 걸려서 못 들어가는 경우, 라우터에 'Host Unreachable'이라는 메세지가 뜬다.
+
+** 액세스 리스트에서 가장 중요한 규칙 4가지.
+01. 액세스 리스트는 윗줄부터 하나씩 차례로 수행된다.
+02. 액세스 리스트의 맨 마지막 line에 'permit any'를 넣지 않을 경우는 default로, 어느 액세스 리스트와도 match되지 않은 나머지 모든 address는 deny된다.
+03. 액세스 리스트의 새로운 라인은 항상 맨 마지막으로 추가되므로 access-list line의 선택적 추가나 제거가 불가능.
+04. interface에 대한 액세스 리스트가 정의되어 있지 않은 경우 결과는 permit any가 된다.
+
+----- 실습 -----
+<스탠다드 액세스 리스트>
+Router(config)# access-list {access-list-number} {permit | deny} {source [source-wildcard] | any }
+>> Router(config)# access-list 2 deny 210.240.100.5
+>> Router(config)# access-list 2 permit 210.240.100.0 0.0.0.255
+Router(config-if)# ip access-group {access-list-number} {in | out}
+>> Router(config-if)# ip access-group 2 out
+// access-list-number는 앞에서 액세스리스트에 부여했던 번호와 동일.
+// access-list-number는 1~99 범위.
+// {in | out} 의 default값은 out.
+
+<익스텐디드 액세스 리스트>
+Router(config)# access-list {access-list-number} {permit | deny} protocol source {source-wildcard} [operator port] destination destination-wildcard [operator port] [establisted] [log]
+>> Router(config)# access-list 104 permit tcp any 128.88.0.0 0.0.255.255 established
+Router(config-if)# ip access-group {access-list-number} {in | out}
+// access-list-number는 100~199 범위.
