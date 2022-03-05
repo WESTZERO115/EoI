@@ -1,0 +1,42 @@
+백준 문제 풀이(03.04)
+----- 1764
+n, m = map(int, input().split())
+
+a = set() ###
+for i in range(n):
+    a.add(input())
+
+b = set()
+for i in range(m):
+    b.add(input())
+
+result = sorted(list(a & b)) ### 교집합
+# sorted 해줘서 사전순으로.
+
+print(len(result))
+
+for i in result:
+    print(i)
+    
+----- 1676
+import math
+A = int(input())
+num = list()
+A = math.factorial(A)
+for i in range(len(str(A))):  #
+  num.append(str(A)[i])       #
+num.reverse()
+
+count=0
+for i in range(len(num)):
+    if(num[i]=='0'):         #
+       count+=1
+    else:
+       break
+
+
+print(count)
+
+
+
+후니의 시스코 네트워킹 책 공부 (03.05)
