@@ -13,7 +13,7 @@ print(abs(77))
 
 #반올림 하기
 print(round(1.222))
-print(round(1.5222))
+print(round(1.572))
 
 #주어진 매개변수 값 중에서 최대값 구하기
 print(max(10, -20, 100, 9999))
