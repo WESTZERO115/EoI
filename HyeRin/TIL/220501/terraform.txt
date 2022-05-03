@@ -1,0 +1,6 @@
+https://enchanted-camp-cdc.notion.site/4-1-AWS-EC-and-SSH-5196d69ab4b04c5da3c872eabcd486fc
+
+https://enchanted-camp-cdc.notion.site/4-2-Zsh-Oh-my-zsh-5bb1e63fdbd84af1aa48d15400ec87cd
+
+https://enchanted-camp-cdc.notion.site/5-1-AWS-CLI-Terraform-a82ef9a5f64e43d19a50c415e9a42dd8
+
